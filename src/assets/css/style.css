@@ -1,0 +1,109 @@
+/* html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #464646;
+  background-image: url('../images/backgroundComic.png');
+  background-size: auto 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+} */
+
+/* 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px/16px;
+  width: 100%;
+  background-image: url('../images/backgroundComic.png');
+  background-size: cover;
+  background-color: #464646;
+} */
+
+.no-padding {
+  padding: 0px !important;
+}
+
+/* --- Login --- */
+
+.bg-container {
+  background-color: rgb(200, 200, 200, 0.9);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 5px solid #4a4a4a;
+  margin-top: 10% !important;
+  max-width: 600px !important;
+  /* min-width: 320px !important; */
+  padding: 20px !important;
+}
+
+.btn-google {
+  background-color: #dd4b39;
+  transition: 0.5s ease-out;
+}
+
+.btn-google:hover {
+  background-color: #EE330B;
+  color: white;
+  border: 3px solid #CC300F;
+  border-radius: 10px;
+}
+
+.btn-email {
+  background-color: #E3DEDD;
+  transition: 0.5s ease-out;
+}
+
+.btn-email:hover {
+  background-color: #F7F7F7;
+  color: #CC300F;
+  border: 3px solid #CC300F;
+  border-radius: 10px;
+}
+
+.new-user {
+  color: #4a4a4a;
+}
+
+.new-user:hover {
+  color: #232323;
+}
+
+.reset-password {
+  color: #4a4a4a;
+}
+
+.reset-password:hover {
+  color: #232323;
+}
+
+.btn-login {
+  color: #c8c8c8;
+  background-color: #232323;
+  border: 2px #4a4a4a solid;
+  border-radius: 10px;
+  transition: background-color 2s, border 2s,
+}
+
+.btn-login:hover {
+  color: #c8c8c8;
+  background-color: #4a4a4a;
+  border: 2px #232323 solid;
+  border-radius: 10px;
+}
+
+/* --- END LOGIN --- */
+
+/* --- HEADER --- */
+
+.bg-header {
+  background-color: #E0E0E0;
+  background-image: none !important;
+}
+
+/* --- END HEADER --- */
