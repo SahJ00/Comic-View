@@ -1,18 +1,30 @@
 # Comic-View
+
 ## Installing
 
-Using npm:
+npm:
 
 ```bash
 $ npm install
 ```
 
-## Example
+## Installing
+
+Download APiI
+
+https://github.com/SahJ00/Comic-api
+
+
+Use the local Api go to src / graphql.js and put:
 
 ```bash
-$ npm node server 
+const graphqlApi = 'http://localhost:3000/graphql'
 ```
-o
+
+## Installing
+
+Example
+
 ```bash
 $ npm run dev
 ```
