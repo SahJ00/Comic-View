@@ -8,9 +8,9 @@ npm:
 $ npm install
 ```
 
-## Installing
+## Download API
 
-Download API
+
 
 https://github.com/SahJ00/Comic-api
 
@@ -21,9 +21,7 @@ Use the local Api go to src / graphql.js and put:
 const graphqlApi = 'http://localhost:3000/graphql'
 ```
 
-## Installing
-
-Example
+## Example
 
 ```bash
 $ npm run dev
