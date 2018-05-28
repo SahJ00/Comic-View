@@ -10,7 +10,7 @@ $ npm install
 
 ## Installing
 
-Download APiI
+Download API
 
 https://github.com/SahJ00/Comic-api
 
