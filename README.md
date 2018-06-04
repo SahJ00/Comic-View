@@ -26,3 +26,7 @@ const graphqlApi = 'http://localhost:3000/graphql'
 ```bash
 $ npm run dev
 ```
+or
+
+https://comic-view.herokuapp.com/
+
