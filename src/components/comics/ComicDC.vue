@@ -61,12 +61,10 @@ export default {
         `
           )
           .then(res => {
-            console.log(res);
             this.comics = res.filter;
           });
       } catch (err) {
         // do something with the error
-        console.log(err);
       }
     }
   }

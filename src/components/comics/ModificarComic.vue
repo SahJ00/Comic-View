@@ -102,13 +102,11 @@ export default {
     detectFilesIMG(fileList) {
       Array.from(Array(fileList.length).keys()).map(x => {
         this.uploadImg(fileList[x]);
-        console.log(fileList[x]);
       });
     },
     detectFilesPDF(fileList) {
       Array.from(Array(fileList.length).keys()).map(x => {
         this.uploadPDF(fileList[x]);
-        console.log(fileList[x]);
       });
     },
     uploadImg(file) {
@@ -122,7 +120,6 @@ export default {
         this.$emit("url", this.downloadURL);
         this.newComic.photo = this.uploadTask.snapshot.downloadURL;
         this.urlPortada = this.newComic.photo;
-        console.log("soy url foto  " + this.newComic.photo);
 
         var pathReference = storage.ref("comics/fotos/" + fileName);
 
@@ -152,7 +149,6 @@ export default {
         this.$emit("url", this.downloadURL);
         this.newComic.pdf = this.uploadTask.snapshot.downloadURL;
         this.urlPDF = this.newComic.pdf;
-        console.log("soy url pdf  " + this.newComic.pdf);
 
         var pathReference = storage.ref("comics/pdf" + fileName);
         db
@@ -204,7 +200,6 @@ export default {
         `;
         const res = this.$graphql.request(query).then(res => {
           this.comic = res.comics;
-          console.log(res);
           this.successMsg = "El comic se añadio a la base de datos";
         });
         setTimeout(
@@ -214,7 +209,6 @@ export default {
           2000
         );
       } catch (err) {
-        console.log(err);
         this.errorMsg = err.message;
       }
     }

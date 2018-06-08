@@ -60,13 +60,11 @@ export default {
         `
           )
           .then(res => {
-            console.log(res);
             this.comics = res.comics;
           });
         this.comics = res.mycomics;
       } catch (err) {
         // do something with the error
-        console.log(err);
       }
     }
   }

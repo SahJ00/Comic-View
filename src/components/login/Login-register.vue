@@ -46,10 +46,12 @@ export default {
     };
   },
   methods: {
+    // CREATER USER 
     createUser: function(e) {
       auth
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(user => {
+          // CREATE USER PROFILE IN DB (FIREBASE)
           var userId = auth.currentUser.uid;
           db.ref("users/" + userId).set({
             id: auth.currentUser.uid,

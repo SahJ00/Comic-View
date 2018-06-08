@@ -65,7 +65,6 @@ export default {
           });
       } catch (err) {
         // do something with the error
-        console.log(err);
       }
     }
   }

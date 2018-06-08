@@ -9,7 +9,7 @@
                 <div class="col-ms-12 col-md-5 m-2">
                   <div class="form-group">
                     <label for="name">Nombre:</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Nombre del comic" required autofocus v-model="name">
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Nombre del usuario" required autofocus v-model="name">
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-5 m-2">

@@ -7,21 +7,21 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item ml-3 pl-1 pr-1 active nav-btn" id="">
+          <li @click="activate(1)" :class="{ active : active_el == 1 }" class="nav-item ml-3 pl-1 pr-1 nav-btn" id="button">
              <router-link :to="{name:'home'}"><a class="nav-link"><i class="fa fa-user"></i>Mi perfil</a></router-link>
           </li>
-          <li class="nav-item pl-1 pr-1 nav-btn " id="">
+          <li @click="activate(2)" :class="{ active : active_el == 2 }" class="nav-item pl-1 pr-1 nav-btn " id="button">
             <router-link :to="{name:'comics'}"><a class="nav-link"><i class="fa fa-leanpub"></i>Comics</a></router-link>
           </li>
-          <li class="nav-item pl-1 pr-1 nav-btn " id="">
+          <li @click="activate(3)" :class="{ active : active_el == 3 }" class="nav-item pl-1 pr-1 nav-btn " id="button">
             <router-link :to="{name:'comicsdc'}"><a class="nav-link">DC Comics</a></router-link>
           </li>
-          <li class="nav-item pl-1 pr-1 nav-btn " id="">
+          <li @click="activate(4)" :class="{ active : active_el == 4 }" class="nav-item pl-1 pr-1 nav-btn " id="button">
             <router-link :to="{name:'comicmarvel'}"><a class="nav-link">Marvel Comics</a></router-link>
           </li>
         </ul>
         <ul class="navbar-nav">
-           <li class="nav-item pl-1 pr-1 nav-btn active" v-if="user.role==='admin'" id="">
+           <li @click="activate(5)" :class="{ active : active_el == 5 }" class="nav-item pl-1 pr-1 nav-btn" v-if="user.role==='admin'" id="button">
              <router-link :to="{name:'newcomic'}"><a class="nav-link"><i class="fa fa-plus-circle"></i>Añadir comic</a></router-link>
           </li>
           <li class="nav-item pl-3 pr-3 nav-btn">
@@ -39,26 +39,26 @@ import { db } from "../firebase";
 export default {
   data() {
     return {
+      active_el:1,
       userId: auth.currentUser.uid,
       user: {}
     };
   },
   created: function() {
+    // CHECK USER
     db.ref("users/" + auth.currentUser.uid).on(
       "value",
       snapshot => {
         this.user = snapshot.val();
-        console.log("soy rol de admin :" + user.role);
         return this.user;
       },
       function(errorObject) {
-        console.log("The read failed: " + errorObject.code);
       }
     );
   },
+  // CAPTURE UID USER
   currentUserId: function() {
     if (auth.currentUser) {
-      console.debug(auth.currentUser.uid);
       return auth.currentUser.uid;
     } else {
       return null;
@@ -66,6 +66,11 @@ export default {
   },
 
   methods: {
+    // ADD ACTIVE CLASS IN NAVBAR
+     activate:function(el){
+        this.active_el = el;
+    },
+    // LOGOUT
     logout() {
       auth.signOut().then(() => {
         this.$router.replace("/login-email");

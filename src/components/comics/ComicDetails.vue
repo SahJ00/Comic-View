@@ -120,7 +120,6 @@ export default {
             .then(res => {
               this.comics = res.comic;
             });
-          // this.comics = res.mycomics;
         } catch (err) {
           // do something with the error
         }
@@ -174,10 +173,7 @@ export default {
           )
           .then(res => {
             this.comics = res.comic;
-            //console.log(comics)
-            console.log("soy url de comic  " + comics.viewComic);
           });
-        // this.comics = res.mycomics;
       } catch (err) {
         // do something with the error
       }

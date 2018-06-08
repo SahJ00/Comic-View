@@ -14,6 +14,11 @@
                 <p class="card-text"> <span>Numero:</span> #{{ comic.number }} </p>
                 <p class="card-text"> <span>Compañia:</span> {{ comic.company }} </p>
 							  <div class="dropdown-divider"></div>
+                <div class="btn-group" role="group">
+				          <button @click="deleteComicFav" class="btn btn-outline-delete" type="button">
+					          <i class="fa fa-trash"></i>Quitar Comic
+				          </button> 
+			          </div>
                 <router-link :to= "{name: 'comic-details', params: {id: comic._id}}"><a class="btn">Ver más</a></router-link>
                 </div>
             </div>
@@ -36,16 +41,18 @@ export default {
     return {
       comics: [],
       currentPage: 0,
-      pageCount: 0
+      pageCount: 0,
+      comicFav: [],
+      prueba: []
     };
   },
   created: function() {
-    // traerse las series de la bd
     db.ref("users/" + auth.currentUser.uid + "/favorites").on(
       "value",
       snapshot => {
         let addComic = snapshot.val();
         for (var comic in addComic) {
+          this.comicFav = comic;
           try {
             const res = this.$graphql
               .request(
@@ -73,15 +80,23 @@ export default {
             // this.comics = res.mycomics;
           } catch (err) {
             // do something with the error
-            console.log(err);
           }
         }
       },
-      function(errorObject) {
-        console.log("The read failed: " + errorObject.code);
-      }
+      function(errorObject) {}
     );
   },
+  methods: {
+    deleteComicFav: function(comic) {
+      var option = confirm("¿Seguro que quieres eliminar este comic?");
+      if ((option = true)) {
+        db
+          .ref("users/" + auth.currentUser.uid + "/favorites/" + this.comicFav)
+          .remove();
+        setTimeout("document.location.reload()", 1000);
+      }
+    }
+  }
 };
 </script>
 

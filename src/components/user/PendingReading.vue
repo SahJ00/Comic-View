@@ -70,13 +70,12 @@ try {
           });
       } catch (err) {
         // do something with the error
-        console.log(err);
       }
     
          }
       },
        function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
+
       });
     
   }

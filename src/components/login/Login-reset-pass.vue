@@ -41,6 +41,7 @@ export default {
     };
   },
   methods: {
+    // RESET PASSWORD
     reset: function(e) {
       e.preventDefault();
       auth

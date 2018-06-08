@@ -43,6 +43,7 @@ export default {
     };
   },
   methods: {
+    // LOGIN
     login:function(e) {
       auth
         .signInWithEmailAndPassword(this.email, this.password)
