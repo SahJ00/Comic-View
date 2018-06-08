@@ -1,8 +1,7 @@
 <template>
-<div class="container bg-containe">
+<div >
 	<div class="row">
 		<div class="col-md-12">
-      <h3>Comics Pendientes de leer</h3>
 			<div class="row">
         	  <div class="card-group pt-2 pb-2 col-sm-3 col-md-3" v-for="comic in comics">
               <div class="card  m-2">
@@ -14,6 +13,11 @@
                 <p class="card-text"> <span>Numero:</span> #{{ comic.number }} </p>
                 <p class="card-text"> <span>Compañia:</span> {{ comic.company }} </p>
 							  <div class="dropdown-divider"></div>
+                <div class="btn-group" role="group">
+				          <button @click="deleteComicPendRead" class="btn btn-outline-delete" type="button">
+					          <i class="fa fa-trash"></i>Quitar Comic
+				          </button> 
+			          </div>
                 <router-link :to= "{name: 'comic-details', params: {id: comic._id}}"><a class="btn">Ver más</a></router-link>
                 </div>
             </div>
@@ -36,7 +40,8 @@ export default {
     return {
       comics: [],
       currentPage: 0,
-      pageCount: 0
+      pageCount: 0,
+      comicPendRead: []
     };
   },
    created: function() {
@@ -44,9 +49,10 @@ export default {
         db.ref('users/' + auth.currentUser.uid + '/pendingReading').on("value", (snapshot) => {
          let addComic = snapshot.val();
           for (var comic in addComic){
-try {
-        const res = this.$graphql
-          .request(
+            this.comicPendRead = comic;
+            try {
+              const res = this.$graphql
+              .request(
             `
              {
   comic (_id:"${comic}") {
@@ -77,7 +83,15 @@ try {
        function (errorObject) {
 
       });
-    
+  },
+  methods: {
+    deleteComicPendRead: function(comic) {
+      var option = confirm ("¿Seguro que quieres quitar este comic de la lista de pendiente de leer?")
+      if(option === true) {
+        db.ref("users/" + auth.currentUser.uid + "/pendingReading/" + this.comicPendRead).remove();
+        setTimeout("document.location.reload()", 1000);
+      }
+    }
   }
 };
 </script>

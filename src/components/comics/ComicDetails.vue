@@ -30,10 +30,14 @@
 			</div>
       <div class="btn-group" role="group" v-if="user.role==='admin'">
 				<button @click="deleteComic" class="btn btn-outline-delete" type="button">
-					<i class="fa fa-trash"></i>Eliminar Comic
+					<i class="fa fa-trash"></i>
 				</button> 
-        <!-- <router-link :to= "{name: 'modificarcomic', params: {id: comic._id}}"><button class="btn btn-secondary" type="button">Modificar Comic </button> </router-link> -->
 			</div>
+      <div class="btn-group" role="group" v-if="user.role==='admin'">
+      	<!-- <router-link :to= "{name: 'modificarcomic', params: {id: comic._id}}"><button class="btn btn-outline-modif" type="button">
+					<i class="fa fa-edit"></i>
+				</button></router-link> -->
+      </div>
         </div>
       </div>
         <!-- <pdf v-bind:src="comics.viewComic"></pdf> -->
@@ -192,38 +196,57 @@ export default {
   border: #ffc300 1px solid;
   transition: background-color 2s, color 2s, border 2s;
 }
+
 .btn-outline-favorites:hover {
   background-color: #ffc300;
   color: #0e0e0e;
   border: #232323 1px solid;
 }
+
 .btn-outline-read {
   color: #84e000;
   border: #84e000 1px solid;
   transition: background-color 2s, color 2s, border 2s;
 }
+
 .btn-outline-read:hover {
   background-color: #84e000;
   color: #0e0e0e;
   border: #232323 1px solid;
 }
+
 .btn-outline-readPending {
   color: #00bbe0;
   border: #00bbe0 1px solid;
   transition: background-color 2s, color 2s, border 2s;
 }
+
 .btn-outline-readPending:hover {
   background-color: #00bbe0;
   color: #0e0e0e;
   border: #232323 1px solid;
 }
+
 .btn-outline-delete {
   color: #e72a04;
   border: #e72a04 1px solid;
   transition: background-color 2s, color 2s, border 2s;
 }
+
 .btn-outline-delete:hover {
   background-color: #e72a04;
+  color: #0e0e0e;
+  border: #232323 1px solid;
+}
+
+.btn-outline-modif {
+  color: #232323;
+  border: #909090 1px solid;
+  transition: background-color 2s, color 2s, border 2s;
+}
+
+.btn-outline-modif:hover {
+  background-color: #A0A0A0;
   color: #0e0e0e;
   border: #232323 1px solid;
 }

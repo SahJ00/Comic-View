@@ -33,13 +33,12 @@
   </header>
 </template>
 <script>
-
 import { auth } from "../firebase";
 import { db } from "../firebase";
 export default {
   data() {
     return {
-      active_el:1,
+      active_el: 1,
       userId: auth.currentUser.uid,
       user: {}
     };
@@ -52,8 +51,7 @@ export default {
         this.user = snapshot.val();
         return this.user;
       },
-      function(errorObject) {
-      }
+      function(errorObject) {}
     );
   },
   // CAPTURE UID USER
@@ -67,8 +65,8 @@ export default {
 
   methods: {
     // ADD ACTIVE CLASS IN NAVBAR
-     activate:function(el){
-        this.active_el = el;
+    activate: function(el) {
+      this.active_el = el;
     },
     // LOGOUT
     logout() {
@@ -93,11 +91,9 @@ export default {
   width: 250px;
 }
 .bg-color-header {
-  /*background-color: #2a2a2a;*/
   background-color: #454545;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
-  /* border-bottom: #232323 1px solid; */
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
@@ -107,6 +103,7 @@ export default {
   color: #dedede !important;
   margin-top: 8px;
   padding-bottom: 15px;
+  transition: color 1s;
 }
 
 .nav-link:hover {
@@ -120,6 +117,7 @@ export default {
 .nav-btn {
   color: #dedede;
   margin-top: 5px !important;
+  transition: background-color 1s, color 1s, border 1s;
 }
 
 .nav-btn:hover {

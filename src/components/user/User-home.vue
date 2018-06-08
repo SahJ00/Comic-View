@@ -1,25 +1,19 @@
 <template>
-  <div class="container bg-main-container pt-2 pb-2">
+  <div >
     <div class="row">
-		<div class="col-md-12">
-			<img v-if ="user.imgProfile !== ''" v-bind:src="user.imgProfile" alt="Imagen de perfil del usuario" class="rounded-circle img-fluid img-profile m-2" />
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="m-2" v-if ="user.userName === ''">
-						 Bienvenid@ {{user.email}}.
-					</h3>
-					<h3 class="m-2" v-else>
-						Bienvenid@ {{user.userName}}.
-					</h3>
-          <router-link :to= "{name: 'user-profile', params: {id: userId}}"><button type="button" class="btn btn-outline-primary mb-2 mt-2">
-						Modificar Perfil
-					</button></router-link>
-					<!-- <router-link :to= "{name: 'user-profile', params: {id: userId}}"><a class="btn">Ver más</a></router-link> -->
-				</div>
-			</div>
-		</div>
-	</div>
-
+      <div class="col-md-12">
+        <img v-if ="user.imgProfile !== ''" v-bind:src="user.imgProfile" alt="Imagen de perfil del usuario" class="rounded-circle img-fluid img-profile m-2" />
+        <h3 class="m-2" v-if ="user.userName === ''">
+          Bienvenid@ {{user.email}}.
+        </h3>
+        <h3 class="m-2" v-else>
+          Bienvenid@ {{user.userName}}.
+        </h3> 
+        <router-link :to= "{name: 'user-profile', params: {id: userId}}"><button type="button" class="btn btn-outline-primary mb-2 mt-2">
+          Modificar Perfil
+        </button></router-link>
+      </div>
+	  </div>
   </div>
 </template>
 
@@ -42,8 +36,7 @@ export default {
         this.user = snapshot.val();
         return this.user;
       },
-      function(errorObject) {
-      }
+      function(errorObject) {}
     );
   },
 
@@ -59,11 +52,10 @@ export default {
 
 
 <style>
-
 .btn-outline-primary {
   color: #454545;
-   border: #454545 1px solid;
-   transition: background-color 2s;
+  border: #454545 1px solid;
+  transition: background-color 2s;
 }
 
 .btn-outline-primary:hover {
@@ -71,8 +63,6 @@ export default {
   color: #0e0e0e;
   border: #232323 1px solid;
 }
-
-
 
 .bg-main-container {
   background-color: #e9e9e9;
