@@ -40,8 +40,6 @@
                   <div class="form-group">
                     <label for="frontpage">Portada:</label>
                      <input type="file"  accept="image/*" @change="detectFilesIMG($event.target.files)">
-                    <!--<input type="file" name="frontpage" id="frontpage" class="form-control" placeholder="Portada" required autofocus v-on="frontpage">-->
-                    <!--<input type="text" name="frontpage" id="frontpage" class="form-control" placeholder="Portada" required autofocus v-model="frontpage">-->
                   </div>
                   <div class="form-group">
                    <label for="viewComic">Comic:</label>

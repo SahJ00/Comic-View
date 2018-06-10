@@ -17,56 +17,32 @@
           </h5>
             {{ comics.description }}
             <br>
-        <div class="btn-group" role="group">
-				<button @click="favorites" class="btn btn-outline-favorites" type="button">
-					<i class="fa fa-star"></i>Favoritos
-				</button> 
-				<button @click="read" class="btn btn-outline-read" type="button">
-					<i class="fa fa-bookmark"></i>Leidos
-				</button> 
-				<button @click="pendingReading" class="btn btn-outline-readPending" type="button">
-					<i class="fa fa-book"></i>Pendientes 
-				</button> 
-			</div>
-      <div class="btn-group" role="group" v-if="user.role==='admin'">
-				<button @click="deleteComic" class="btn btn-outline-delete" type="button">
-					<i class="fa fa-trash"></i>
-				</button> 
-			</div>
-      <div class="btn-group" role="group" v-if="user.role==='admin'">
-      	<!-- <router-link :to= "{name: 'modificarcomic', params: {id: comic._id}}"><button class="btn btn-outline-modif" type="button">
-					<i class="fa fa-edit"></i>
-				</button></router-link> -->
-      </div>
+          <div class="btn-group" role="group">
+            <button @click="favorites" class="btn btn-outline-favorites" type="button">
+              <i class="fa fa-star"></i>Favoritos
+            </button> 
+            <button @click="read" class="btn btn-outline-read" type="button">
+              <i class="fa fa-bookmark"></i>Leidos
+            </button> 
+            <button @click="pendingReading" class="btn btn-outline-readPending" type="button">
+              <i class="fa fa-book"></i>Pendientes 
+            </button> 
+          </div>
+          <div class="btn-group" role="group" v-if="user.role==='admin'">
+            <button @click="deleteComic" class="btn btn-outline-delete" type="button">
+              <i class="fa fa-trash"></i>
+            </button> 
+          </div>
+          <router-link :to= "{name: 'comics'}"><button type="button" class="btn btn-outline-primary mb-2 mt-2"><i class="fa fa-undo"></i>Volver</button></router-link>
         </div>
       </div>
-        <!-- <pdf v-bind:src="comics.viewComic"></pdf> -->
-      <!-- <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
-  <i class="fa fa-eye"></i>Leer comic
-</button> -->
-
       <div class="dropdown-divider"></div>
       <button type="button" class="btn btn-outline-primary mb-2 mt-3">
         <i class="fa fa-eye"></i><a v-bind:href="comics.viewComic" target="_blank">Leer comic</a>
       </button>
-          <!-- <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">{{ comics.name }}</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <pdf v-bind:src="comics.viewComic" @num-pages="pageCount = $event" @page-loaded="currentPage = $event"></pdf>
-                </div>
-              </div>
-            </div>
-          </div> -->
-        </div>
-      </div>
     </div>
+  </div>
+</div>
 
 </template>
 
@@ -74,6 +50,7 @@
 import pdf from "vue-pdf";
 import { db } from "../../firebase";
 import { auth } from "../../firebase";
+
 
 export default {
   data() {
@@ -185,12 +162,24 @@ export default {
   },
   props: ["id"],
   components: {
-    pdf
+  
   }
 };
 </script>
 
 <style>
+.btn-outline-primary {
+  color: #454545;
+  border: #454545 1px solid;
+  transition: background-color 2s;
+}
+
+.btn-outline-primary:hover {
+  background-color: #b2b2b2;
+  color: #0e0e0e;
+  border: #232323 1px solid;
+}
+
 .btn-outline-favorites {
   color: #ffc300;
   border: #ffc300 1px solid;
@@ -246,7 +235,7 @@ export default {
 }
 
 .btn-outline-modif:hover {
-  background-color: #A0A0A0;
+  background-color: #a0a0a0;
   color: #0e0e0e;
   border: #232323 1px solid;
 }

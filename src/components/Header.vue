@@ -101,7 +101,7 @@ export default {
 
 .nav-link {
   color: #dedede !important;
-  margin-top: 8px;
+  padding-top: 15px;
   padding-bottom: 15px;
   transition: color 1s;
 }
@@ -116,7 +116,6 @@ export default {
 
 .nav-btn {
   color: #dedede;
-  margin-top: 5px !important;
   transition: background-color 1s, color 1s, border 1s;
 }
 
@@ -124,18 +123,12 @@ export default {
   background-color: #dedede;
   color: #0e0e0e;
   border: #232323 1px solid;
-  border-radius: 10px 10px 0px 0px;
-  -moz-border-radius: 10px 10px 0px 0px;
-  -webkit-border-radius: 10px 10px 0px 0px;
 }
 
 .active {
   background-color: #222222;
   color: #454545;
   border: #dedede 1px solid;
-  border-radius: 10px 10px 0px 0px;
-  -moz-border-radius: 10px 10px 0px 0px;
-  -webkit-border-radius: 10px 10px 0px 0px;
 }
 </style>
 

@@ -1,5 +1,5 @@
 <template>
-<div class="">
+  <div>
     <div class="row">
  	    <div class="card-group pt-3 pb-2 col-sm-3 col-md-3 " v-for="comic in comics">
         <div class="card hvr-grow m-2">
