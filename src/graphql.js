@@ -3,7 +3,7 @@ import VueGraphQL from 'vue-graphql';
  
 Vue.use(VueGraphQL);
  
-const graphqlApi = 'https://api-comicview.herokuapp.com/graphql'
+const graphqlApi = 'https://api-comic-view.herokuapp.com/graphql'
 // const graphqlApi = 'http://localhost:3000/graphql'
 //const auth = 'REPLACE_WITH_YOUR_AUTH_TOKEN';
  
